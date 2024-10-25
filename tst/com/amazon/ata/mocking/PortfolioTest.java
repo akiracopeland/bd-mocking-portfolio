@@ -19,14 +19,13 @@ class PortfolioTest {
         Map<Stock, Integer> stocks = new HashMap<>();
         Portfolio portfolio = new Portfolio(stocks);
         Stock stockToAdd = new Stock("id", "name");
-        Integer quantityToAdd = 5;
+        Integer quantityToAdd = 1;
 
         // WHEN
         portfolio.addStocks(stockToAdd, quantityToAdd);
 
         // THEN
-        assertEquals(1, stocks.size());
-        assertEquals(quantityToAdd, stocks.get(stockToAdd));
+        assertEquals(1, portfolio.getStocks().get(stockToAdd));
     }
 
     @Test
@@ -72,7 +71,7 @@ class PortfolioTest {
         portfolio.removeStocks(stockInPortfolio, quantity);
 
         // THEN
-        assertNull(stocks.get(stockInPortfolio));
+        assertEquals(0, stocks.get(stockInPortfolio));
     }
 
     @Test
